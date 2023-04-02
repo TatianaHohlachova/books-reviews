@@ -3,6 +3,14 @@ from main import app, db
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import inspect
 
+
+@pytest.fixture(autouse=True, scope='session')
+def prepare_db():
+    db.create_all()
+    yield
+    db.drop_all()
+
+
 def test_review_add():
     with app.test_client() as client:
         response = client.post('/add-review', json={

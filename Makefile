@@ -14,6 +14,7 @@ run_prod:
 	gunicorn wsgi:app -b 0.0.0.0:8000
 
 prepare_db:
+	source .venv/bin/activate
 	python prepare_db.py
 
 lint:
