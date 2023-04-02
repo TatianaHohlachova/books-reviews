@@ -36,7 +36,7 @@ db.create_all()
 
 @app.route('/')
 def index():
-    response = requests.get(url_for('most_popular'))
+    response = requests.get('http://127.0.0.1:8000/most-popular')
     print(response.json())
     return render_template('index.html', most_reviewed=response.json()[:5])
 
@@ -73,4 +73,4 @@ def search():
     return jsonify({'book_id': books_object.id})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=8000)
