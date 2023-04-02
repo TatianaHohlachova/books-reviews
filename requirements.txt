@@ -1,0 +1,9 @@
+flask
+sqlalchemy
+flask-migrate
+flask-sqlalchemy
+flake8
+black
+pytest
+gunicorn
+requests
